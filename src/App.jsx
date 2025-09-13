@@ -1,35 +1,68 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+
+import { Chart as ChartJS } from "chart.js/auto";
+import { CheckCircle } from "lucide-react";
+
+import NavBar from "./components/NavBar";
+
+import NavBarSide from "./components/NavBarSide";
+import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [showNavBar, setShowNavBar] = useState(false);
 
+  useEffect(() => {
+    function handleNavBarCloseOutside(event) {
+      // console.log(event.clientX);
+      if (event.clientX > 250 && showNavBar) {
+        setShowNavBar(false);
+      }
+    }
+
+    window.addEventListener("click", handleNavBarCloseOutside);
+
+    return () => {
+      window.removeEventListener("click", handleNavBarCloseOutside);
+    };
+  }, [showNavBar]);
+
+  const handleNavBarSideOpen = () => {
+    setShowNavBar(true);
+  };
+
+  const handleNavBarSideClose = () => {
+    setShowNavBar(false);
+  };
+
+  const navBarData = {
+    closeNavBar: handleNavBarSideClose,
+    navBarlinks: [
+      { link: "/", linkName: "Dashboard", icon: CheckCircle },
+      { link: "/formPage", linkName: "Form", icon: CheckCircle },
+      { link: "/accordianPage", linkName: "Accordion", icon: CheckCircle },
+      { link: "/tablePage", linkName: "Table", icon: CheckCircle },
+      { link: "/modalPage", linkName: "Modal", icon: CheckCircle },
+      {
+        link: "/notificationPage",
+        linkName: "Notification",
+        icon: CheckCircle,
+      },
+      { link: "/cardPage", linkName: "Card", icon: CheckCircle },
+      { link: "/toastPage", linkName: "Toast", icon: CheckCircle },
+      { link: "/countPage", linkName: "Count", icon: CheckCircle },
+      { link: "/detailsForm", linkName: "Personal Details", icon: CheckCircle },
+    ],
+  };
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <NavBar openNavBar={handleNavBarSideOpen}></NavBar>
+
+      {showNavBar && <NavBarSide navBarData={navBarData}></NavBarSide>}
+
+      <Outlet />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

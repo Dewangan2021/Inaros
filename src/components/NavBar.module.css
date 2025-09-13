@@ -1,0 +1,30 @@
+
+
+.navbar_cont{
+   width:100%;
+    display:flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    
+    padding-left: 10px;
+    padding-right: 10px;
+   
+}
+.logo{
+    margin-left: 25px;
+    font-family: cursive;
+}
+.nav{
+    display:flex;
+    margin-right: 25px;
+}
+.nav_links{
+    margin: 0 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+}
+.nav_links:hover{
+    text-decoration: underline;
+    cursor:pointer;
+    
+}

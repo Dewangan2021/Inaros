@@ -1,0 +1,44 @@
+.cus_card_cont {
+  width: 250px;
+  height: 150px;
+  margin: 10px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ebd9d1;
+  overflow: hidden;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cus_card_content {
+     flex: 1;
+     display:flex;
+     padding: 10px;
+     flex-direction: column;
+     align-items: center;
+
+}
+.cus_card_icon{
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+.cus_card_count{
+    margin: 0;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+}
+.cus_card_title{
+margin: 0;
+font-size: 14px;
+color: grey;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+.cus_card_col {
+  width: 100%;
+  height: 10px;
+ 
+}
+

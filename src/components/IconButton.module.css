@@ -1,0 +1,13 @@
+
+.icon_btn{
+    background-color: #0000ff;
+     padding: 4px 8px;
+    border:none;
+    border-radius: 10px;
+    width:fit-content;
+    margin: 1px;
+}
+
+.icon_btn:hover{
+    background-color: #3333ff;
+}

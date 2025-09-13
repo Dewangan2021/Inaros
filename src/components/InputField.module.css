@@ -1,0 +1,100 @@
+.inp_main_cont {
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.cus_label {
+  flex:1;
+  margin: 0;
+  padding-left: 10px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.cus_required {
+  color: red;
+  padding-left: 5px;
+}
+
+.cus_pass {
+  display: flex;
+  align-items: center;
+  width: 250px;
+  border: 1.5px solid gray;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.cus_pass:focus-within {
+  border: 1.5px solid black;
+}
+
+.cus_inp {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+
+  flex: 1;
+  border: none;
+}
+.cus_inp:focus {
+outline: none;
+  border: none;
+}
+.pass_toggle {
+  padding: 1px;
+}
+
+.error {
+  color: red;
+  margin: 0;
+  padding-top: 3px;
+  padding-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+}
+
+.edit_icon{
+
+  margin:0 10px;
+}
+.edit_cont{
+  display: flex;
+}
+
+.inp_cont {
+  flex:1;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  border-bottom: 2px solid grey;
+}
+.inp_cont:focus-within {
+  border-bottom: 2px soilid black;
+}
+
+.inp {
+  border: none;
+}
+.inp:focus {
+  outline: none;
+  border: none;
+}
+
+.req_cont{
+    display:flex;
+}
+.label {
+  margin: 0;
+  padding-left: 10px;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+.sel_type{
+    margin-top: 5px;
+    margin-bottom:5px;
+  border: none;
+  width:100%;
+}
+.sel_type:focus{
+    outline: none;
+}
