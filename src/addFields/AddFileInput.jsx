@@ -1,3 +1,4 @@
+
 // {
 //     key: "file",
 //     label: "Select files",
@@ -8,6 +9,7 @@
 //     req: true,
 //     handleChange: handleCheckChange,
 //   }
+
 
 import { useState } from "react";
 import Button from "../components/Button";
@@ -43,12 +45,14 @@ const AddFileInput = ({ addFileData }) => {
     disabled: false,
     iconBtnFunc: handleFieldReq,
   };
+
   // btn and logic to add select field dynamically
   const btnAddFileField = {
     btnType: "button",
     btnDisabled: false,
     btnText: "Add FileInput",
     btnFunc: () => {
+
       setShowModal(true);
     },
   };
@@ -65,18 +69,22 @@ const AddFileInput = ({ addFileData }) => {
       ...prev,
       {
         fieldType: "file",
+
         key: newKey,
         label: newLabel,
         type: newType,
         multiple: newMultiple,
         accept: newAccept,
+
         disabled: newDisabled,
         req: newReq,
+
       },
     ]);
 
     addFileData.addInpKey(newKey);
   };
+
   return (
     <>
       <Button btnData={btnAddFileField}></Button>
@@ -188,6 +196,7 @@ const AddFileInput = ({ addFileData }) => {
       )}
     </>
   );
+
 };
 
 export default AddFileInput;

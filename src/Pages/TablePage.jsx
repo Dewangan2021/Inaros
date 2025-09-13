@@ -1,6 +1,7 @@
 import Table from "../components/Table";
 import { Edit, Trash } from "lucide-react";
 
+
 import { useState, useEffect } from "react";
 
 const TablePage = () => {
@@ -124,6 +125,7 @@ const TablePage = () => {
   const tableData = {
     tableHeading: ["EmployeeId", "Name", "Location", "Actions", "Checkbox"],
     rowData: formattedRowData,
+
   };
 
   return (

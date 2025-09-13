@@ -1,6 +1,7 @@
 
 // validation import
 import validateOnlyAlphabets from "../validation/ValidateOnlyAlphabets";
+
 import validatePassword from "../validation/ValidatePassword";
 import validateEmail from "../validation/ValidateEmail";
 import validateMobile from "../validation/ValidateMobile";
@@ -20,6 +21,7 @@ const SelectValidation = (validation) => {
    return validatePassword;
  }else{
    return null;
+ 
  }
 };
 

@@ -47,7 +47,9 @@ const AddSelect = ({ addSelectData }) => {
 
     setLabel("");
     setOptionLabel([]);
+
     setOptionValue("");
+
     setReq(false);
   };
 
@@ -65,13 +67,16 @@ const AddSelect = ({ addSelectData }) => {
     btnText: "Add Select",
     btnFunc: () => {
       setShowModal(true);
+
     },
   };
   const handleAddField = (newKey, newLabel, newOption, newDisabled, newReq) => {
     addSelectData.setFields((prev) => [
       ...prev,
       {
+
         fieldType: "select",
+
         key: newKey,
         selectLabel: newLabel,
         option: newOption,
@@ -98,10 +103,12 @@ const AddSelect = ({ addSelectData }) => {
               <svg
                 onClick={() => {
                   setShowModal(false);
+
                   setLabel("");
                   setOptionLabel([]);
                   setOptionValue("");
                   setReq(false);
+
                 }}
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

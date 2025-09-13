@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5599fc (Code 13.09.25)
 // {
 //     key: "fruits",
 //     selectLabel: "Fruit",
@@ -12,6 +16,7 @@
 //     handleChange : handleRadioSelectChange
 //   }
 import styles from "./Select.module.css";
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 
 const Select = ({ selectData }) => {
@@ -208,6 +213,32 @@ const Select = ({ selectData }) => {
           </div>
         </>
       )}
+=======
+
+const Select = ({ 
+  selectData
+}) => {
+  
+  return (
+    <div className={styles.sel_cont}>
+      <p className={styles.cus_label}>{selectData.selectLabel}
+         {selectData.selectRequired && <span className={styles.cus_required}>*</span>}
+      </p>
+      <select
+        className={styles.cus_select}
+        value={selectData.val[selectData.key]}
+        disabled={selectData.selectDisabled}
+        required={selectData.selectRequired}
+        onChange={(e) => {
+         selectData.handleChange(selectData.key , e.target.value);
+          console.log(e.target.value);
+        }}
+      >
+        {selectData.option.map((item) => (
+          <option key= {item.val} value={item.val}>{item.label}</option>
+        ))}
+      </select>
+>>>>>>> e5599fc (Code 13.09.25)
     </div>
   );
 };

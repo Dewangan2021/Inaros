@@ -8,6 +8,7 @@
 
 //     },
 
+
 import { useState } from "react";
 import Button from "../components/Button";
 import IconButton from "../components/IconButton";
@@ -56,13 +57,16 @@ const AddTextArea = ({ addTextAreaData }) => {
     iconBtnFunc: handleFieldReq,
   };
 
+
   // btn and logic to add textarea field dynamically
   const btnAddTxtField = {
     btnType: "button",
     btnDisabled: false,
     btnText: "Add TextArea",
     btnFunc: () => {
+
       setShowModal(true);
+
     },
   };
 
@@ -78,7 +82,9 @@ const AddTextArea = ({ addTextAreaData }) => {
     addTextAreaData.setFields((prev) => [
       ...prev,
       {
+
         fieldType: "textarea",
+
         key: newKey,
         txtLabel: newLabel,
         txtPlaceholder: newPlaceholder,
@@ -90,6 +96,7 @@ const AddTextArea = ({ addTextAreaData }) => {
 
     addTextAreaData.addInpKey(newKey);
     addTextAreaData.addErrorKey(newKey);
+
 
     let selectedValidation = SelectValidation(newValidation);
 
@@ -210,6 +217,7 @@ const AddTextArea = ({ addTextAreaData }) => {
       )}
     </>
   );
+
 };
 
 export default AddTextArea;

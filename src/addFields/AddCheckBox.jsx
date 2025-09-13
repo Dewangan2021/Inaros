@@ -41,8 +41,10 @@ const AddCheckBox = ({ addCheckData }) => {
     handleAddField(fieldKey, label, req, false, option);
 
     setLabel("");
+
     setOptionLabel([]);
     setOptionValue("");
+
     setReq(false);
   };
 
@@ -72,7 +74,9 @@ const AddCheckBox = ({ addCheckData }) => {
     addCheckData.setFields((prev) => [
       ...prev,
       {
+
         fieldType: "checkbox",
+
         key: newKey,
         checkLabel: newLabel,
         checkRequired: newReq,
@@ -98,10 +102,12 @@ const AddCheckBox = ({ addCheckData }) => {
               <svg
                 onClick={() => {
                   setShowModal(false);
+
                   setLabel("");
                   setOptionLabel([]);
                   setOptionValue("");
                   setReq(false);
+
                 }}
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

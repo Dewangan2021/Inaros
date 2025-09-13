@@ -1,6 +1,8 @@
 // on submit required validation will be handled by browser
 // check for inpError each key if all keys are an empty string than means no error in form and proceed with form submission else break and show alert
+
 // after form submit clear field values set it to default
+
 
 // to add form fields on button click input and textarea
 // add the component data in array of components
@@ -19,10 +21,12 @@ import useFormValues from "../store/formValues";
 
 // validation components
 import validateOnlyAlphabets from "../validation/ValidateOnlyAlphabets";
+
 import SelectValidation from "../addFields/SelectValidation";
 
 // components to add fields dynamically
 import AddInput from "../addFields/AddInput";
+
 
 import { useEffect, useState } from "react";
 import AddTextArea from "../addFields/AddTextArea";
@@ -41,6 +45,7 @@ const DetailsForm = () => {
   const addInpKey = useFormValues((state) => state.addInpKey);
   const addErrorKey = useFormValues((state) => state.addErrorKey);
   const addInpKeyCheck = useFormValues((state) => state.addInpKeyCheck);
+
 
   // useEffect(() => {
   //   console.log("Input values from zustand");
@@ -221,6 +226,7 @@ const DetailsForm = () => {
     });
     setFileFields(updatedField);
   };
+
   const [validation, setValidation] = useState({
     name: validateOnlyAlphabets,
   });
@@ -235,10 +241,12 @@ const DetailsForm = () => {
     return error;
   };
 
+
   // useEffect(() => {
   //   console.log("new validation added");
   //   console.log(validation);
   // }, [validation]);
+
   // to handle input and textarea change
 
   const handleInputChange = (key, value, req) => {
@@ -324,6 +332,7 @@ const DetailsForm = () => {
     },
   ]);
 
+
   // useEffect(() => {
   //   console.log("New input field added");
   //   console.log(inputFields);
@@ -333,6 +342,7 @@ const DetailsForm = () => {
   //   console.log("New textarea field added");
   //   console.log(textAreaFields);
   // }, [textAreaFields]);
+
 
   // to handle radio and select change
   const handleRadioSelectChange = (key, value) => {
@@ -353,10 +363,12 @@ const DetailsForm = () => {
       ],
     },
   ]);
+
   // useEffect(() => {
   //   console.log("New radio field added");
   //   console.log(radioFields);
   // }, [radioFields]);
+
 
   // select form fields
   const [selectFields, setSelectFields] = useState([
@@ -374,10 +386,12 @@ const DetailsForm = () => {
     },
   ]);
 
+
   // useEffect(() => {
   //   console.log("New select field added");
   //   console.log(selectFields);
   // }, [selectFields]);
+
 
   // to handle check value changes
   const handleCheckFileChange = (key, values) => {
@@ -414,6 +428,7 @@ const DetailsForm = () => {
     },
   ]);
 
+
   // useEffect(() => {
   //   console.log("New check field added");
   //   console.log(checkFields);
@@ -437,6 +452,7 @@ const DetailsForm = () => {
   //   console.log(fileFields);
   // }, [fileFields]);
 
+
   const btnData = {
     btnType: "submit",
     btnDisabled: false,
@@ -454,36 +470,48 @@ const DetailsForm = () => {
     validationList: setValidation,
     addInpKey: addInpKey,
     addErrorKey: addErrorKey,
+
     inputVal: inputVal,
+
   };
   const addTextAreaData = {
     setFields: setTextAreaFields,
     validationList: setValidation,
     addInpKey: addInpKey,
     addErrorKey: addErrorKey,
+
     inputVal: inputVal,
+
   };
 
   const addRadioData = {
     setFields: setRadioFields,
     addInpKey: addInpKey,
+
     inputVal: inputVal,
+
   };
   const addSelectData = {
     setFields: setSelectFields,
     addInpKey: addInpKey,
+
     inputVal: inputVal,
+
   };
   const addCheckData = {
     setFields: setCheckFields,
     addInpKey: addInpKeyCheck,
+
     inputVal: inputVal,
+
   };
 
   const addFileData = {
     setFields: setFileFields,
     addInpKey: addInpKeyCheck,
+
     inputVal: inputVal,
+
   };
   return (
     <div>
@@ -506,8 +534,10 @@ const DetailsForm = () => {
               val: inputVal,
               err: inputError,
               handleChange: handleInputChange,
+
               updateInputFields: updateInputFields,
               validationList: validation,
+
             }}
           ></InputField>
         ))}
@@ -518,10 +548,12 @@ const DetailsForm = () => {
             textData={{
               ...item,
               handleChange: handleInputChange,
+
               updateTextFields: updateTextFields,
               val: inputVal,
               err: inputError,
               validationList: validation,
+
             }}
           ></Textfield>
         ))}
@@ -532,7 +564,9 @@ const DetailsForm = () => {
             radioData={{
               ...item,
               handleChange: handleRadioSelectChange,
+
               updateRadioFields: updateRadioFields,
+
               val: inputVal,
             }}
           ></Radio>
@@ -545,7 +579,9 @@ const DetailsForm = () => {
               ...item,
               val: inputVal,
               handleChange: handleRadioSelectChange,
+
               updateSelectFields: updateSelectFields,
+
             }}
           ></Select>
         ))}
@@ -557,18 +593,22 @@ const DetailsForm = () => {
               ...item,
               err: inputError,
               handleChange: handleCheckFileChange,
+
               updateCheckFields: updateCheckFields,
+
             }}
           ></CheckInput>
         ))}
         {fileFields.map((item) => (
           <FileInput
             key={item.key}
+
             fileData={{
               ...item,
               handleChange: handleCheckFileChange,
               updateFileFields: updateFileFields,
             }}
+
           ></FileInput>
         ))}
         <div

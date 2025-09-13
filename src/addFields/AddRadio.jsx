@@ -10,7 +10,9 @@
 //       ],
 //     },
 import { CheckCircleIcon } from "lucide-react";
+
 import {  useState } from "react";
+
 import Button from "../components/Button";
 import IconButton from "../components/IconButton";
 import styles from "./AddRadio.module.css";
@@ -22,7 +24,6 @@ const AddRadio = ({ addRadioData }) => {
   const [req, setReq] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
-
 
 
   const handleFieldReq = () => {
@@ -44,8 +45,10 @@ const AddRadio = ({ addRadioData }) => {
 
     setLabel("");
     setOptionLabel([]);
+
     setReq(false);
     setOptionValue("");
+
   };
 
   const iconbuttonData = {
@@ -74,7 +77,9 @@ const AddRadio = ({ addRadioData }) => {
     addRadioData.setFields((prev) => [
       ...prev,
       {
+
         fieldType: "radio",
+
         key: newKey,
         name: newName,
         radioReq: newReq,
@@ -103,10 +108,12 @@ const AddRadio = ({ addRadioData }) => {
               <svg
                 onClick={() => {
                   setShowModal(false);
+
                   setLabel("");
                   setOptionLabel([]);
                   setReq(false);
                   setOptionValue("");
+
                 }}
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

@@ -4,7 +4,10 @@
 }
 
 .cus_label {
+<<<<<<< HEAD
   flex:1;
+=======
+>>>>>>> e5599fc (Code 13.09.25)
   margin: 0;
   padding-left: 10px;
   font-family: "Times New Roman", Times, serif;
@@ -32,6 +35,7 @@
 .error {
   color: red;
   margin: 0;
+<<<<<<< HEAD
   padding-left: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -81,4 +85,10 @@
 }
 .sel_type:focus{
     outline: none;
+=======
+ 
+  padding-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+>>>>>>> e5599fc (Code 13.09.25)
 }

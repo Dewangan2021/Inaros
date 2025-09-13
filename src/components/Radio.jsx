@@ -12,6 +12,7 @@
 //    val:inputVal,
 
 //   }
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import styles from "./Radio.module.css";
 
@@ -211,6 +212,37 @@ const Radio = ({ radioData }) => {
           </div>
         </>
       )}
+=======
+import styles from "./Radio.module.css";
+
+const Radio = ({ 
+  radioData 
+}) => {
+
+  return (
+    <div className={styles.rad_cont}>
+      <p className={styles.cus_label}>{radioData.radioLabel}
+         {radioData.radioReq && <span className={styles.cus_required}>*</span>}
+      </p>
+      <div className={styles.cus_radio_cont}>
+        {radioData.radioOption.map((item) => (
+          <div className={styles.cus_radio} key={item.val}>
+            <p className={styles.cus_option_label}>{item.label}</p>
+            <input
+              type="radio"
+              required={radioData.radioReq}
+              disabled={radioData.radioDisabled}
+              value={item.val}
+              name={radioData.name}
+              onChange={(e) => {
+                // console.log(e.target.value);
+                radioData.handleChange(radioData.key , e.target.value)
+              }}
+            />
+          </div>
+        ))}
+      </div>
+>>>>>>> e5599fc (Code 13.09.25)
     </div>
   );
 };

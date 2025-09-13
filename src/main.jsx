@@ -51,8 +51,15 @@ const router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById('root')).render(
+<<<<<<< HEAD
   // <StrictMode>
     <RouterProvider router={router}/>
   
   // </StrictMode>,
+=======
+  <StrictMode>
+    <RouterProvider router={router}/>
+  
+  </StrictMode>,
+>>>>>>> e5599fc (Code 13.09.25)
 )

@@ -10,6 +10,7 @@
 //     err: inputError,
 //   }
 import styles from "./Textfield.module.css";
+<<<<<<< HEAD
 import { useState , useEffect} from "react";
 import { validationlist } from "../addFields/SelectValidation";
 
@@ -180,6 +181,35 @@ const Textfield = ({ textData }) => {
             ></input>
           </div>
         </>
+=======
+
+const Textfield = ({textData}) => {
+  return (
+    <div className={styles.txt_cont}>
+      <p className={styles.cus_label}>
+        {textData.txtLabel}
+        {textData.txtRequired && <span className={styles.cus_required}>*</span>}
+      </p>
+      <textarea
+        rows={5}
+        className={styles.cus_txt_area}
+        value={textData.val[textData.key]}
+        placeholder={textData.txtPlaceholder}
+        maxLength={textData.txtMaxlength}
+        required={textData.txtRequired}
+        readOnly={textData.txtReadonly}
+        wrap="hard"
+        onInput={(e) => {
+          textData.handleChange(
+            textData.key,
+            e.target.value,
+            textData.txtRequired
+          );
+        }}
+      ></textarea>
+      {textData.err[textData.key] && (
+        <p className={styles.error}>{textData.err[textData.key]}</p>
+>>>>>>> e5599fc (Code 13.09.25)
       )}
     </div>
   );

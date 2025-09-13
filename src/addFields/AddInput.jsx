@@ -9,7 +9,9 @@ import IconButton from "../components/IconButton";
 import { CheckCircleIcon } from "lucide-react";
 
 import SelectValidation from "./SelectValidation";
+
 import { validationlist } from "./SelectValidation";
+
 
 import { useState } from "react";
 
@@ -17,6 +19,7 @@ import styles from "./AddInput.module.css";
 
 const AddInput = ({ addInputData }) => {
   const [label, setLabel] = useState("");
+
   const [placeholder, setPlacehoder] = useState("");
   const [maxLen, setMaxLen] = useState("");
   const [max, setMax] = useState("");
@@ -25,12 +28,17 @@ const AddInput = ({ addInputData }) => {
 
   const [validation, setValidation] = useState("");
 
+
+ 
+
+
   const [req, setReq] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
 
   const handleFieldReq = () => {
-    setShowModal(false);
+
+  setShowModal(false);
     let objValues = Object.keys(addInputData.inputVal);
     let len = objValues.length;
     let fieldKey = `field${len}`;
@@ -55,6 +63,25 @@ const AddInput = ({ addInputData }) => {
     setType("text");
     setReq(false);
     setValidation("");
+
+    // setShowModal(false);
+    // let objValues = Object.keys(addSelectData.inputVal);
+    // let len = objValues.length;
+    // let fieldKey = `field${len}`;
+    // // console.log(fieldKey);
+    // let option = [];
+    // option = optionLabel.map((item) => {
+    //   let upperCaseVal = item.toUpperCase();
+    //   // console.log(upperCaseVal);
+    //   return { val: upperCaseVal, label: item };
+    // });
+    // option.unshift({ val: "", label: "Select from dropdown" });
+    // // console.log(option);
+    // handleAddField(fieldKey, label, option, false, req);
+    // setLabel("");
+    // setOptionLabel([]);
+    // setReq(false);
+
   };
 
   const iconbuttonData = {
@@ -69,7 +96,22 @@ const AddInput = ({ addInputData }) => {
     btnDisabled: false,
     btnText: "Add Input",
     btnFunc: () => {
+
       setShowModal(true);
+
+      handleAddField(
+        "city",
+        "text",
+        "City",
+        "Enter City",
+        30,
+        true,
+        false,
+        "",
+        ""
+        // "validateOnlyAlphabets"
+      );
+
     },
   };
   const handleAddField = (
@@ -81,13 +123,17 @@ const AddInput = ({ addInputData }) => {
     newReq,
     newReadonly,
     newMin,
-    newMax,
-    newValidation
+
+    newMax
+    // newValidation
+
   ) => {
     addInputData.setFields((prev) => [
       ...prev,
       {
+
         fieldType: "input",
+
         key: newKey,
         type: newType,
         inpLabel: newLabel,
@@ -112,6 +158,7 @@ const AddInput = ({ addInputData }) => {
         [newKey]: selectedValidation,
       }));
     }
+
   };
 
   return (
@@ -125,6 +172,7 @@ const AddInput = ({ addInputData }) => {
               <svg
                 onClick={() => {
                   setShowModal(false);
+
                   setLabel("");
                   setPlacehoder("");
                   setMaxLen("");
@@ -133,6 +181,7 @@ const AddInput = ({ addInputData }) => {
                   setType("text");
                   setValidation("");
                   setReq(false);
+
                 }}
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -152,6 +201,7 @@ const AddInput = ({ addInputData }) => {
             </div>
             <div className={styles.inp_cont}>
               <p className={styles.label}>Type</p>
+
               <select
                 className={styles.sel_type}
                 value={type}
@@ -159,16 +209,19 @@ const AddInput = ({ addInputData }) => {
                   setType(e.target.value);
                 }}
               >
+
                 <option value={"text"}>Text</option>
                 <option value={"email"}>Email</option>
                 <option value={"password"}>Password</option>
                 <option value={"date"}>Date</option>
                 <option value={"week"}>Week</option>
                 <option value={"month"}>Month</option>
+
                 <option value={"datetime-local"}>Datetime</option>
                 <option value={"number"}>Number</option>
                 <option value={"time"}>Time</option>
                 {/* <option value={"url"}>URL</option> */}
+
               </select>
             </div>
             <div className={styles.inp_cont}>
@@ -183,6 +236,7 @@ const AddInput = ({ addInputData }) => {
             </div>
 
             <div className={styles.inp_cont}>
+
               <p className={styles.label}>Enter Placeholder</p>
               <input
                 value={placeholder}
@@ -194,18 +248,22 @@ const AddInput = ({ addInputData }) => {
             </div>
 
             <div className={styles.inp_cont}>
+
               <p className={styles.label}>Maximum Length</p>
               <input
                 type="text"
                 value={maxLen}
                 className={styles.inp}
                 onInput={(e) => {
+
                   // console.log(typeof e.target.value);
+
                   setMaxLen(e.target.value);
                   // setLabel(e.target.value);
                 }}
               ></input>
             </div>
+
             {type != "text" && type != "email" && type != "password" && (
               <>
                 <div className={styles.inp_cont}>
@@ -254,6 +312,7 @@ const AddInput = ({ addInputData }) => {
                 ))}
               </select>
             </div>
+
             <div className={styles.req_cont}>
               <p className={styles.label}>Required</p>
               <input

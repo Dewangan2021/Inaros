@@ -1,7 +1,9 @@
 import styles from "./Table.module.css";
 
 
+
 const Table = ({ data }) => {
+
 
   return (
     <table className={styles.cus_table}>
@@ -15,6 +17,7 @@ const Table = ({ data }) => {
         </tr>
       </thead>
       <tbody>
+
         {data.rowData.map((item, i) => (
           <tr key={i}>
             {data.tableHeading.map((head) => {
@@ -71,6 +74,7 @@ const Table = ({ data }) => {
         ))}
 
         
+
       </tbody>
     </table>
   );

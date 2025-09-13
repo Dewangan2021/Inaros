@@ -4,6 +4,7 @@
   margin-bottom: 20px;
 } */
 
+<<<<<<< HEAD
 body {
   margin: 0px;
     box-sizing: border-box;
@@ -13,3 +14,11 @@ body {
 *::after {
   box-sizing: border-box;
 }
+=======
+body{
+  margin: 0px;
+width:100vw;
+}
+* { box-sizing: border-box; }
+
+>>>>>>> e5599fc (Code 13.09.25)

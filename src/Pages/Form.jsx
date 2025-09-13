@@ -1,10 +1,13 @@
+
 // Input fields import
+
 import InputField from "../components/InputField";
 import Textfield from "../components/Textfield";
 import Radio from "../components/Radio";
 import Select from "../components/Select";
 import FileInput from "../components/FileInput";
 import CheckInput from "../components/CheckInput";
+
 
 // Add fields import
 import AddCheckBox from "../addFields/AddCheckBox";
@@ -252,15 +255,18 @@ const setSubmitStatus = useFormValuesTest((state) => state.setSubmitStatus);
   const handleFormSubmit = (event) => {
     event.preventDefault();
     console.log(fields);
+
     console.log(inputVal);
     console.log(inputError);
   };
+
 
   const btnData = {
     btnType: "submit",
     btnDisabled: false,
     btnText: "Submit",
   };
+
 
    const formSubmitData = {
     btnType: "submit",
@@ -435,6 +441,7 @@ const setSubmitStatus = useFormValuesTest((state) => state.setSubmitStatus);
         <AddCheckBox addCheckData={addCheckData}></AddCheckBox>
         <AddFileInput addFileData={addFileData}></AddFileInput>
       </div>
+
     </div>
   );
 };

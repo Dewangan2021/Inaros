@@ -4,6 +4,7 @@ import styles from "./CheckInput.module.css";
 const CheckInput = ({ checkData }) => {
   const [values, setValues] = useState([]);
 
+<<<<<<< HEAD
   const [editMode, setEditMode] = useState(false);
   const [optionValue, setOptionValue] = useState("");
   const [optionLabel, setOptionLabel] = useState([]);
@@ -21,11 +22,14 @@ const CheckInput = ({ checkData }) => {
       setOptionLabel((prev) => [...prev, item.label]);
     });
   }, [checkData.option]);
+=======
+>>>>>>> e5599fc (Code 13.09.25)
   useEffect(() => {
     checkData.handleChange(checkData.key, values);
   }, [values]);
   return (
     <div className={styles.check_cont}>
+<<<<<<< HEAD
       <div className={styles.edit_cont}>
         {!editMode && (
           <p className={styles.cus_label}>
@@ -210,6 +214,41 @@ const CheckInput = ({ checkData }) => {
           </div>
         </>
       )}
+=======
+      <p className={styles.cus_label}>
+        {checkData.checkLabel}
+        {checkData.checkRequired && (
+          <span className={styles.cus_required}>*</span>
+        )}
+      </p>
+      <div className={styles.cus_check_cont}>
+        {checkData.option.map((item, index) => {
+          return (
+            <div key={item.val} className={styles.check_cont}>
+              <input
+              disabled={checkData.checkDisabled}
+                required={index == 0 && values.length == 0 ? true : false}
+                type="checkbox"
+                value={item.val}
+                onChange={(e) => {
+                  // console.log(e.target.value);
+                  let selVal = e.target.value;
+                  // console.log(e.target.checked);
+                  if (e.target.checked) {
+                    setValues((prev) => [...prev, selVal]);
+                  } else {
+                    const newVal = values.filter((hobby) => selVal !== hobby);
+                    // console.log(newVal);
+                    setValues(newVal);
+                  }
+                }}
+              ></input>
+              <p className={styles.check_val_label}>{item.label}</p>
+            </div>
+          );
+        })}
+      </div>
+>>>>>>> e5599fc (Code 13.09.25)
     </div>
   );
 };

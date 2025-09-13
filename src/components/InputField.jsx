@@ -11,6 +11,7 @@
 //       err: inputError,
 //     }
 
+<<<<<<< HEAD
 import { useEffect, useState } from "react";
 import styles from "./InputField.module.css";
 import { validationlist } from "../addFields/SelectValidation";
@@ -270,6 +271,89 @@ const InputField = ({ inpData }) => {
             ></input>
           </div>
         </>
+=======
+import { useState } from "react";
+import styles from "./InputField.module.css";
+
+const InputField = ({ inpData }) => {
+  const [inpType, setInptype] = useState(inpData.type);
+  return (
+    <div className={styles.inp_cont}>
+      <p className={styles.cus_label}>
+        {inpData.inpLabel}
+        {inpData.inpRequired && <span className={styles.cus_required}>*</span>}
+      </p>
+      <div className={styles.cus_pass}>
+        <input
+
+          type={inpType}
+          className={styles.cus_inp}
+          value={inpData.val[inpData.key]}
+          placeholder={inpData.inpPlaceholder}
+          maxLength={inpData.inpMaxlength}
+          required={inpData.inpRequired}
+          readOnly={inpData.inpReadonly}
+          min={inpData.inpMin}
+          max={inpData.inpMax}
+          onInput={(e) => {
+            inpData.handleChange(
+              inpData.key,
+              e.target.value,
+              inpData.inpRequired
+            );
+          }}
+        ></input>
+        {inpData.type == "password" && (
+          <>
+            {inpType == "password" && (
+              <svg
+                onClick={() => {
+                  setInptype("text");
+                }}
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`${styles.pass_toggle} lucide lucide-eye-icon lucide-eye`}
+              >
+                <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            )}
+
+            {inpType == "text" && (
+              <svg
+                onClick={() => {
+                  setInptype(inpData.type);
+                }}
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className={`${styles.pass_toggle} lucide lucide-eye-off-icon lucide-eye-off`}
+              >
+                <path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49" />
+                <path d="M14.084 14.158a3 3 0 0 1-4.242-4.242" />
+                <path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143" />
+                <path d="m2 2 20 20" />
+              </svg>
+            )}
+          </>
+        )}
+      </div>
+      {inpData.err[inpData.key] && (
+        <p className={styles.error}>{inpData.err[inpData.key]}</p>
+>>>>>>> e5599fc (Code 13.09.25)
       )}
     </div>
   );
