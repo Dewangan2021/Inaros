@@ -1,8 +1,8 @@
 import { create } from "zustand";
 import { produce } from "immer";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 
-const useFormValuesTest = create((set) => ({
+const useFormValuesTest = create(persist((set) => ({
   submitStatus: false,
   inpValues: {
     name:"",
@@ -41,6 +41,14 @@ const useFormValuesTest = create((set) => ({
       })
     ),
   setSubmitStatus: () => set({ submitStatus: true }),
-}));
+}),
+{
+  name: "statusSubmit",
+  storage : createJSONStorage(() => sessionStorage),
+  partialize: (state) => ({submitStatus : state.submitStatus}),
+}
+)
+
+);
 
 export default useFormValuesTest;
