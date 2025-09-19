@@ -1,10 +1,15 @@
 import { create } from "zustand";
 import { produce } from "immer";
+import { persist } from "zustand/middleware";
 
 const useFormValuesTest = create((set) => ({
   submitStatus: false,
-  inpValues: {},
-  inpError: {},
+  inpValues: {
+    name:"",
+  },
+  inpError: {
+    name : "",
+  },
   setInpValues: (key, value) =>
     set(
       produce((state) => {

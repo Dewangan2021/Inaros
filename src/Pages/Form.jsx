@@ -1,4 +1,3 @@
-
 // Input fields import
 
 import InputField from "../components/InputField";
@@ -7,7 +6,6 @@ import Radio from "../components/Radio";
 import Select from "../components/Select";
 import FileInput from "../components/FileInput";
 import CheckInput from "../components/CheckInput";
-
 
 // Add fields import
 import AddCheckBox from "../addFields/AddCheckBox";
@@ -37,7 +35,7 @@ const FormPage = () => {
   const addErrorKey = useFormValuesTest((state) => state.addErrorKey);
   const addInpKeyCheck = useFormValuesTest((state) => state.addInpKeyCheck);
   const submitStatus = useFormValuesTest((state) => state.submitStatus);
-const setSubmitStatus = useFormValuesTest((state) => state.setSubmitStatus);
+  const setSubmitStatus = useFormValuesTest((state) => state.setSubmitStatus);
   // validation
   const [validation, setValidation] = useState({});
 
@@ -250,7 +248,20 @@ const setSubmitStatus = useFormValuesTest((state) => state.setSubmitStatus);
   };
 
   // field list
-  const [fields, setFields] = useState([]);
+  const [fields, setFields] = useState([
+    {
+      fieldType: "input",
+      key: "name",
+      type: "input",
+      inpLabel: "Name",
+      inpPlaceholder: "Enter name",
+      inpMaxlength: "20",
+      inpRequired: true,
+      inpReadonly: false,
+      inpMin: "",
+      inpMax: "",
+    },
+  ]);
   // form submit
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -260,19 +271,19 @@ const setSubmitStatus = useFormValuesTest((state) => state.setSubmitStatus);
     console.log(inputError);
   };
 
-
   const btnData = {
     btnType: "submit",
     btnDisabled: false,
     btnText: "Submit",
   };
 
-
-   const formSubmitData = {
+  const formSubmitData = {
     btnType: "submit",
     btnDisabled: false,
     btnText: "Submit Form",
-    btnFunc: () => {setSubmitStatus();}
+    btnFunc: () => {
+      setSubmitStatus();
+    },
   };
 
   // props for add input fields button
@@ -318,111 +329,111 @@ const setSubmitStatus = useFormValuesTest((state) => state.setSubmitStatus);
         display: "flex",
       }}
     >
-      <div  style={{
+      <div
+        style={{
           display: "flex",
           flex: 1,
           alignItems: "center",
           flexDirection: "column",
           marginTop: "40px",
           // justifyContent: "center",
-        }}>
-      <form
-        onSubmit={handleFormSubmit}
-       style={{
-        marginBottom:"20px",
-       }}
+        }}
       >
-        {fields.map((item) => {
-          if (item.fieldType == "input") {
-            return (
-              <InputField
-                key={item.key}
-                inpData={{
-                  ...item,
-                  val: inputVal,
-                  err: inputError,
-                  handleChange: handleInputChange,
-                  updateInputFields: updateInputFields,
-                  validationList: validation,
-                  submitStatus: submitStatus,
-                }}
-              ></InputField>
-            );
-          } else if (item.fieldType == "textarea") {
-            return (
-              <Textfield
-                key={item.key}
-                textData={{
-                  ...item,
-                  handleChange: handleInputChange,
-                  updateTextFields: updateTextFields,
-                  val: inputVal,
-                  err: inputError,
-                  validationList: validation,
-                  submitStatus: submitStatus,
-                }}
-              ></Textfield>
-            );
-          } else if (item.fieldType == "radio") {
-            return (
-              <Radio
-                key={item.key}
-                radioData={{
-                  ...item,
-                  handleChange: handleRadioSelectChange,
-                  updateRadioFields: updateRadioFields,
-                  val: inputVal,
-                  submitStatus: submitStatus,
-                }}
-              ></Radio>
-            );
-          } else if (item.fieldType == "select") {
-            return (
-              <Select
-                key={item.key}
-                selectData={{
-                  ...item,
-                  val: inputVal,
-                  handleChange: handleRadioSelectChange,
-                  updateSelectFields: updateSelectFields,
-                  submitStatus: submitStatus,
-                }}
-              ></Select>
-            );
-          } else if (item.fieldType == "checkbox") {
-            return (
-              <CheckInput
-                key={item.key}
-                checkData={{
-                  ...item,
-                  err: inputError,
-                  handleChange: handleCheckFileChange,
-                  updateCheckFields: updateCheckFields,
-                  submitStatus: submitStatus,
-                }}
-              ></CheckInput>
-            );
-          } else if (item.fieldType == "file") {
-            return (
-              <FileInput
-                key={item.key}
-                fileData={{
-                  ...item,
-                  handleChange: handleCheckFileChange,
-                  updateFileFields: updateFileFields,
-                  submitStatus: submitStatus,
-                }}
-              ></FileInput>
-            );
-          }
-        })}
-        {fields.length > 0 && (
-          <ButtonFormSubmit btnData={btnData}></ButtonFormSubmit>
-        )}
-      </form>
-       {fields.length > 0 && (
-          <Button btnData={formSubmitData}></Button>
-        )}
+        <form
+          onSubmit={handleFormSubmit}
+          style={{
+            marginBottom: "20px",
+          }}
+        >
+          {fields.map((item) => {
+            if (item.fieldType == "input") {
+              return (
+                <InputField
+                  key={item.key}
+                  inpData={{
+                    ...item,
+                    val: inputVal,
+                    err: inputError,
+                    handleChange: handleInputChange,
+                    updateInputFields: updateInputFields,
+                    validationList: validation,
+                    submitStatus: submitStatus,
+                  }}
+                ></InputField>
+              );
+            } else if (item.fieldType == "textarea") {
+              return (
+                <Textfield
+                  key={item.key}
+                  textData={{
+                    ...item,
+                    handleChange: handleInputChange,
+                    updateTextFields: updateTextFields,
+                    val: inputVal,
+                    err: inputError,
+                    validationList: validation,
+                    submitStatus: submitStatus,
+                  }}
+                ></Textfield>
+              );
+            } else if (item.fieldType == "radio") {
+              return (
+                <Radio
+                  key={item.key}
+                  radioData={{
+                    ...item,
+                    handleChange: handleRadioSelectChange,
+                    updateRadioFields: updateRadioFields,
+                    val: inputVal,
+                    submitStatus: submitStatus,
+                  }}
+                ></Radio>
+              );
+            } else if (item.fieldType == "select") {
+              return (
+                <Select
+                  key={item.key}
+                  selectData={{
+                    ...item,
+                    val: inputVal,
+                    handleChange: handleRadioSelectChange,
+                    updateSelectFields: updateSelectFields,
+                    submitStatus: submitStatus,
+                  }}
+                ></Select>
+              );
+            } else if (item.fieldType == "checkbox") {
+              return (
+                <CheckInput
+                  key={item.key}
+                  checkData={{
+                    ...item,
+                    err: inputError,
+                    handleChange: handleCheckFileChange,
+                    updateCheckFields: updateCheckFields,
+                    submitStatus: submitStatus,
+                  }}
+                ></CheckInput>
+              );
+            } else if (item.fieldType == "file") {
+              return (
+                <FileInput
+                  key={item.key}
+                  fileData={{
+                    ...item,
+                    handleChange: handleCheckFileChange,
+                    updateFileFields: updateFileFields,
+                    submitStatus: submitStatus,
+                  }}
+                ></FileInput>
+              );
+            }
+          })}
+          {fields.length > 0 && (
+            <ButtonFormSubmit btnData={btnData}></ButtonFormSubmit>
+          )}
+        </form>
+        {fields.length > 0 && <Button btnData={formSubmitData}></Button>}
       </div>
       <div
         style={{
@@ -430,7 +441,7 @@ const setSubmitStatus = useFormValuesTest((state) => state.setSubmitStatus);
           display: "flex",
           alignItems: "center",
           flexDirection: "column",
-         
+
           marginTop: "40px",
         }}
       >
@@ -441,7 +452,6 @@ const setSubmitStatus = useFormValuesTest((state) => state.setSubmitStatus);
         <AddCheckBox addCheckData={addCheckData}></AddCheckBox>
         <AddFileInput addFileData={addFileData}></AddFileInput>
       </div>
-
     </div>
   );
 };

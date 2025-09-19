@@ -28,10 +28,6 @@ const AddInput = ({ addInputData }) => {
 
   const [validation, setValidation] = useState("");
 
-
- 
-
-
   const [req, setReq] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
